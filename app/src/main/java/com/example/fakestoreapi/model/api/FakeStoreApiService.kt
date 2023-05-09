@@ -12,9 +12,9 @@ import retrofit2.http.Path
 interface FakeStoreApiService {
 
     @POST("/auth/login")
-    fun loginWithUserNameAndPassword(
+    fun loginWithUserNameAndPasswordAndGetToken(
         @Body loginRequest: LoginRequest
-    ): Single<String> // returns token
+    ): Single<String>
 
     @GET("/products")
     fun getAllProducts(): Single<List<ProductResponse>>
@@ -26,9 +26,9 @@ interface FakeStoreApiService {
     fun getCartsByUserId(@Path("userId") userId: Int): Single<List<CartResponse>>
 
     @GET("/users/{userId}")
-    fun getUserById(@Path("userId") userId: Int):Single<ProductResponse>
+    fun getUserById(@Path("userId") userId: Int): Single<ProductResponse>
 
     @GET("/products/{productId}")
-    fun getProductById(@Path("productID") productID:Int):Single<ProductResponse>
+    fun getProductById(@Path("productID") productID: Int): Single<ProductResponse>
 
 }
