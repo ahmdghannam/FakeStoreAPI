@@ -1,7 +1,8 @@
-package com.example.fakestoreapi.model
+package com.example.fakestoreapi.model.repository
 
 import android.content.Context
 import com.example.fakestoreapi.model.api.API
+import com.example.fakestoreapi.model.api.FakeStoreApiService
 import com.example.fakestoreapi.model.dto.CartResponse
 import com.example.fakestoreapi.model.dto.LoginRequest
 import com.example.fakestoreapi.model.dto.ProductResponse
@@ -9,51 +10,50 @@ import com.example.fakestoreapi.model.localdata.SharedPreferencesUtil
 import com.example.fakestoreapi.utils.tokenToUserId
 import io.reactivex.rxjava3.core.Single
 
-class repository(applicationContext: Context) {
+class MyRepositoryImpl(
+    private val apiService: FakeStoreApiService,
+    private val sharedPreferences: SharedPreferencesUtil
+) : MyRepository {
 
-    private val apiService = API().fakeStoreApiService
-    private val sharedPreferences = SharedPreferencesUtil(applicationContext)
-
-    fun getUserId(token: String): Int? {
+    override fun getUserId(token: String): Int? {
         return sharedPreferences.userId
     }
 
-    fun saveUserIdToSharedPreferences(token: String) {
+    override fun saveUserIdToSharedPreferences(token: String) {
         val userId = tokenToUserId(token)
         sharedPreferences.userId = userId
     }
 
-    fun logOut() {
+    override fun logOut() {
         sharedPreferences.deleteLoginData()
     }
 
-    fun isLoggedIn(): Boolean {
+    override fun isLoggedIn(): Boolean {
         return sharedPreferences.isLoggedIn()
     }
 
-    fun loginWithUserNameAndPassword(loginRequest: LoginRequest): Single<String> {
+    override fun loginWithUserNameAndPassword(loginRequest: LoginRequest): Single<String> {
         return apiService.loginWithUserNameAndPasswordAndGetToken(loginRequest)
     }
 
-    fun getAllProducts(): Single<List<ProductResponse>> {
+    override fun getAllProducts(): Single<List<ProductResponse>> {
         return apiService.getAllProducts()
     }
 
-    fun getAllCategories(): Single<List<String>> {
+    override fun getAllCategories(): Single<List<String>> {
         return apiService.getAllCategories()
     }
 
-    fun getCartsByUserId(userId: Int): Single<List<CartResponse>> {
+    override fun getCartsByUserId(userId: Int): Single<List<CartResponse>> {
         return apiService.getCartsByUserId(userId)
     }
 
-    fun getUserById(userId: Int): Single<ProductResponse> {
+    override fun getUserById(userId: Int): Single<ProductResponse> {
         return apiService.getUserById(userId)
     }
 
-    fun getProductById(productID: Int): Single<ProductResponse> {
-        return apiService.getProductById(productID)
+    override fun getProductById(productId: Int): Single<ProductResponse> {
+        return apiService.getProductById(productId)
     }
-
 
 }
