@@ -8,7 +8,6 @@ import com.example.fakestoreapi.model.dto.ProductResponse
 import com.example.fakestoreapi.model.localdata.SharedPreferencesUtil
 import com.example.fakestoreapi.utils.tokenToUserId
 import io.reactivex.rxjava3.core.Single
-import retrofit2.http.Path
 
 class repository(applicationContext: Context) {
 
