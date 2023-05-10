@@ -1,19 +1,20 @@
 package com.example.fakestoreapi.model.repository
 
-import android.content.Context
 import com.example.fakestoreapi.model.api.API
 import com.example.fakestoreapi.model.api.FakeStoreApiService
 import com.example.fakestoreapi.model.dto.CartResponse
 import com.example.fakestoreapi.model.dto.LoginRequest
 import com.example.fakestoreapi.model.dto.ProductResponse
+import com.example.fakestoreapi.model.dto.TokenResponse
 import com.example.fakestoreapi.model.localdata.SharedPreferencesUtil
 import com.example.fakestoreapi.utils.tokenToUserId
 import io.reactivex.rxjava3.core.Single
 
-class MyRepositoryImpl(
-    private val apiService: FakeStoreApiService,
+class RepositoryImpl(
     private val sharedPreferences: SharedPreferencesUtil
-) : MyRepository {
+) : Repository {
+
+    private val apiService = API().fakeStoreApiService
 
     override fun getUserId(token: String): Int? {
         return sharedPreferences.userId
@@ -32,7 +33,7 @@ class MyRepositoryImpl(
         return sharedPreferences.isLoggedIn()
     }
 
-    override fun loginWithUserNameAndPassword(loginRequest: LoginRequest): Single<String> {
+    override fun loginWithUserNameAndPassword(loginRequest: LoginRequest): Single<TokenResponse> {
         return apiService.loginWithUserNameAndPasswordAndGetToken(loginRequest)
     }
 

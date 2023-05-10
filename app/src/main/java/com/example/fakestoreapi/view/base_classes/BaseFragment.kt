@@ -12,7 +12,7 @@ abstract class BaseFragment<DB : ViewDataBinding, VM : BaseViewModel> : Fragment
     private var _binding: DB? = null
     val binding: DB
         get() = _binding as DB
-    protected abstract val viewModel: VM
+    protected abstract  var viewModel: VM?
     protected abstract val layoutIdFragment: Int
 
     override fun onCreateView(

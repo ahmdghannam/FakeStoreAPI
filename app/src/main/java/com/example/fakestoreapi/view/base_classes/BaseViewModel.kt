@@ -1,6 +1,9 @@
 package com.example.fakestoreapi.view.base_classes
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.example.fakestoreapi.model.localdata.SharedPreferencesUtil
+import com.example.fakestoreapi.view.login.LoginViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
 
@@ -12,7 +15,9 @@ abstract class BaseViewModel : ViewModel() {
         compositeDisposable.dispose()
     }
 
-    protected fun Disposable.addTo(){
+    protected fun Disposable.addToCompositeDisposable(){
         compositeDisposable.add(this)
     }
+
+
 }
