@@ -31,6 +31,6 @@ interface FakeStoreApiService {
     fun getUserById(@Path("userId") userId: Int): Single<User>
 
     @GET("/products/{productId}")
-    fun getProductById(@Path("productID") productID: Int): Single<ProductResponse>
+    fun getProductById(@Path("productId") productID: Int): Single<ProductResponse>
 
 }

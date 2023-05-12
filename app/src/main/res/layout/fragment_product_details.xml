@@ -38,11 +38,13 @@
                 android:layout_marginEnd="@dimen/margin_x_medium"
                 android:fontFamily="@font/itim_regular"
                 android:gravity="end"
+                android:text="@{viewmodel.category}"
                 android:textColor="@color/black"
                 android:textSize="@dimen/body_small"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageview_back_button"
                 app:layout_constraintTop_toTopOf="@+id/imageview_back_button"
+                app:showWhenSuccess="@{viewmodel.fragmentState}"
                 tools:text="@string/from_men_s_clothing" />
 
             <ImageView
@@ -53,6 +55,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textview_category_title"
+                app:setImageWithUrl="@{viewmodel.productImage}"
+                app:showWhenSuccess="@{viewmodel.fragmentState}"
                 tools:src="@drawable/bag" />
 
             <TextView
@@ -62,11 +66,13 @@
                 android:layout_marginHorizontal="16dp"
                 android:layout_marginTop="@dimen/margin_huge"
                 android:fontFamily="@font/itim_regular"
+                android:text="@{viewmodel.title}"
                 android:textColor="@color/black"
                 android:textSize="@dimen/title_medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/imageview_product_image"
+                app:showWhenSuccess="@{viewmodel.fragmentState}"
                 tools:text="Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops" />
 
             <TextView
@@ -75,11 +81,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_medium"
                 android:fontFamily="@font/itim_regular"
+                android:text="@{viewmodel.description}"
                 android:textColor="@color/black"
                 android:textSize="@dimen/body_small"
                 app:layout_constraintEnd_toEndOf="@id/textview_product_title"
                 app:layout_constraintStart_toStartOf="@+id/textview_product_title"
                 app:layout_constraintTop_toBottomOf="@+id/textview_product_title"
+                app:showWhenSuccess="@{viewmodel.fragmentState}"
                 tools:text="Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday" />
 
             <TextView
@@ -88,10 +96,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_medium"
                 android:fontFamily="@font/itim_regular"
+                android:text="@{ @string/price + ' ' + viewmodel.price + @string/dollar}"
                 android:textColor="@color/khamry"
                 android:textSize="@dimen/body_medium"
                 app:layout_constraintStart_toStartOf="@+id/textview_product_description"
                 app:layout_constraintTop_toBottomOf="@+id/textview_product_description"
+                app:showWhenSuccess="@{viewmodel.fragmentState}"
                 tools:text="price: 109.95 $" />
 
             <ImageView
@@ -127,20 +137,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_medium"
-                android:theme="@style/RatingBar"
                 android:isIndicator="true"
+                app:setRatingValue="@{viewmodel.rating}"
+                android:theme="@style/RatingBar"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textview_product_price" />
+                app:layout_constraintTop_toBottomOf="@+id/textview_product_price"
+                app:showWhenSuccess="@{viewmodel.fragmentState}" />
 
             <TextView
                 android:id="@+id/textview_ratings_counter"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_very_small"
+                android:text="@{viewmodel.ratesCounter + ' ' +@string/ratings}"
                 app:layout_constraintEnd_toEndOf="@+id/ratingBar"
                 app:layout_constraintStart_toStartOf="@+id/ratingBar"
                 app:layout_constraintTop_toBottomOf="@+id/ratingBar"
+                app:showWhenSuccess="@{viewmodel.fragmentState}"
                 tools:text="146 ratings" />
 
 
@@ -160,7 +174,8 @@
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="@+id/ratingBar"
                 app:layout_constraintStart_toStartOf="@+id/ratingBar"
-                app:layout_constraintTop_toBottomOf="@+id/textview_ratings_counter" />
+                app:layout_constraintTop_toBottomOf="@+id/textview_ratings_counter"
+                app:showWhenSuccess="@{viewmodel.fragmentState}" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -172,7 +187,8 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/body_small"
                 app:layout_constraintEnd_toEndOf="@+id/button"
-                app:layout_constraintTop_toBottomOf="@+id/button" />
+                app:layout_constraintTop_toBottomOf="@+id/button"
+                app:showWhenSuccess="@{viewmodel.fragmentState}" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>
