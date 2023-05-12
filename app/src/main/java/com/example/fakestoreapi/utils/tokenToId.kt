@@ -1,18 +1,18 @@
 package com.example.fakestoreapi.utils
 
 private val hashMap = mapOf(
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsInVzZXIiOiJqb2huZCIsImlhdCI6MTY4MzYyNTYzMH0.gStOwNsgzKl_UiakMayQpghgVA3sPNyrfcmELhdNV5U" to 1,
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsInVzZXIiOiJtb3JfMjMxNCIsImlhdCI6MTY4MzYzMDg0NX0.9IeUub0hzf3-KSKXMI8ryszlYOZMRdUqgpYxp12rc2U" to 2,
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjMsInVzZXIiOiJrZXZpbnJ5YW4iLCJpYXQiOjE2ODM2MzA5NTB9.1ANY-dERt1gpXSY7e9oENKT3vGFvKpsuFTVhEdg0h8U" to 3,
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjQsInVzZXIiOiJkb25lcm8iLCJpYXQiOjE2ODM2MzA5Nzl9.K9JokRCfkJdAJ62R0Ff6vHyUxdiGzW6FDOJi1o7Ge5g" to 4,
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjUsInVzZXIiOiJkZXJlayIsImlhdCI6MTY4MzYzMDk5OX0.K1D652mKuVEOhcVzLpgcmq2zH_47PUyeoIunFnNqsJk" to 5,
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjYsInVzZXIiOiJkYXZpZF9yIiwiaWF0IjoxNjgzNjMxMDM2fQ.GtSdpyRxLQsXJa1ZkiY1OON7_LXeM_okEu2UffsgZwQ" to 6,
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjcsInVzZXIiOiJzbnlkZXIiLCJpYXQiOjE2ODM2MzEwNjd9.Exovq9eM_HYZIrw_kmcOxfm4axgD2q_C2bALhK27DMY" to 7,
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjgsInVzZXIiOiJob3BraW5zIiwiaWF0IjoxNjgzNjMxMTA0fQ.YcPP29Cs1olwfFieY_uvq-cU-gTdB9aB52QKRsYJ5tU" to 8,
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjksInVzZXIiOiJrYXRlX2giLCJpYXQiOjE2ODM2MzExNDB9.0mPo9AHpxkzcvKtUozJ9O8WWU3j3R3zA8KQOmsbM3dY" to 9,
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEwLCJ1c2VyIjoiamltbWllX2siLCJpYXQiOjE2ODM2MzExNjJ9.QiVjTCueCkQ0c1gLYmCS1BZqVa8Alhf6rMMuWDyCvW0" to 10,
+    "johnd" to 1,
+    "mor_2314" to 2,
+    "kevinryan" to 3,
+    "donero" to 4,
+    "derek" to 5,
+    "david_r" to 6,
+    "snyder" to 7,
+    "hopkins" to 8,
+    "kate_h" to 9,
+    "jimmie_k" to 10
 )
 
-fun tokenToUserId(token: String): Int {
-    return hashMap[token] ?: -2
+fun userNameToId(userName: String): Int {
+    return hashMap[userName] ?: -2
 }

@@ -1,32 +1,24 @@
-package com.example.fakestoreapi.view.login
+package com.example.fakestoreapi.view.product_details
 
-import android.os.Bundle
-import android.util.Log
-import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.example.fakestoreapi.R
-import com.example.fakestoreapi.databinding.FragmentLoginBinding
+import com.example.fakestoreapi.databinding.FragmentProductDetailsBinding
 import com.example.fakestoreapi.model.localdata.SharedPreferencesUtil
 import com.example.fakestoreapi.view.base_classes.BaseFragment
 import com.example.fakestoreapi.view.core.CustomViewModelFactory
 
-class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
+class ProductDetailsFragment :
+    BaseFragment<FragmentProductDetailsBinding, ProductDetailsViewModel>() {
 
-    override var viewModel: LoginViewModel? = null
-
-    override val layoutIdFragment = R.layout.fragment_login
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        setupViewModel()
-        addToastCallBack()
-    }
+    override var viewModel: ProductDetailsViewModel? = null
+    override val layoutIdFragment = R.layout.fragment_product_details
 
     override fun setupViewModel() {
         val customViewModelFactory = CustomViewModelFactory(
             SharedPreferencesUtil(requireContext())
         )
-        viewModel = ViewModelProvider(this, customViewModelFactory)[LoginViewModel::class.java]
+        viewModel =
+            ViewModelProvider(this, customViewModelFactory)[ProductDetailsViewModel::class.java]
         binding.viewmodel = viewModel
     }
 
@@ -37,6 +29,5 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginViewModel>() {
             }
         }
     }
-
 
 }

@@ -22,7 +22,7 @@ class SharedPreferencesUtil(private val applicationContext: Context) {
     }
 
     fun isLoggedIn(): Boolean {
-        return userId != NOT_LOGIN
+        return userId != null && userId != NOT_LOGIN
     }
 
     companion object {

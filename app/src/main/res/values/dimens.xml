@@ -17,4 +17,5 @@
     <dimen name="image_height">250dp</dimen>
     <dimen name="margin_very_small">2sp</dimen>
     <dimen name="corner_radius">16dp</dimen>
+    <dimen name="error_image_size">50dp</dimen>
 </resources>

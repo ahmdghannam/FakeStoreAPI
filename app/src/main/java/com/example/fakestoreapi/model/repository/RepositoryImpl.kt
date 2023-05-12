@@ -1,13 +1,14 @@
 package com.example.fakestoreapi.model.repository
 
+import android.util.Log
 import com.example.fakestoreapi.model.api.API
-import com.example.fakestoreapi.model.api.FakeStoreApiService
 import com.example.fakestoreapi.model.dto.CartResponse
 import com.example.fakestoreapi.model.dto.LoginRequest
 import com.example.fakestoreapi.model.dto.ProductResponse
 import com.example.fakestoreapi.model.dto.TokenResponse
+import com.example.fakestoreapi.model.dto.User
 import com.example.fakestoreapi.model.localdata.SharedPreferencesUtil
-import com.example.fakestoreapi.utils.tokenToUserId
+import com.example.fakestoreapi.utils.userNameToId
 import io.reactivex.rxjava3.core.Single
 
 class RepositoryImpl(
@@ -16,12 +17,14 @@ class RepositoryImpl(
 
     private val apiService = API().fakeStoreApiService
 
-    override fun getUserId(token: String): Int? {
+    override fun getUserId(): Int? {
         return sharedPreferences.userId
     }
 
-    override fun saveUserIdToSharedPreferences(token: String) {
-        val userId = tokenToUserId(token)
+    override fun saveUserIdToSharedPreferences(username: String) {
+        Log.i(TAG, "token : $username")
+        val userId = userNameToId(username)
+        Log.i(TAG, "user id : $userId")
         sharedPreferences.userId = userId
     }
 
@@ -49,12 +52,19 @@ class RepositoryImpl(
         return apiService.getCartsByUserId(userId)
     }
 
-    override fun getUserById(userId: Int): Single<ProductResponse> {
-        return apiService.getUserById(userId)
+    override fun getUser(): Single<User> {
+        getUserId()?.let {
+            return apiService.getUserById(it)
+        }
+        throw Exception("user not login")
     }
 
     override fun getProductById(productId: Int): Single<ProductResponse> {
         return apiService.getProductById(productId)
+    }
+
+    companion object{
+        private const val TAG="Repository"
     }
 
 }

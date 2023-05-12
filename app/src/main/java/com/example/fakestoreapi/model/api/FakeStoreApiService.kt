@@ -4,6 +4,7 @@ import com.example.fakestoreapi.model.dto.CartResponse
 import com.example.fakestoreapi.model.dto.LoginRequest
 import com.example.fakestoreapi.model.dto.ProductResponse
 import com.example.fakestoreapi.model.dto.TokenResponse
+import com.example.fakestoreapi.model.dto.User
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.Body
 import retrofit2.http.GET
@@ -27,7 +28,7 @@ interface FakeStoreApiService {
     fun getCartsByUserId(@Path("userId") userId: Int): Single<List<CartResponse>>
 
     @GET("/users/{userId}")
-    fun getUserById(@Path("userId") userId: Int): Single<ProductResponse>
+    fun getUserById(@Path("userId") userId: Int): Single<User>
 
     @GET("/products/{productId}")
     fun getProductById(@Path("productID") productID: Int): Single<ProductResponse>

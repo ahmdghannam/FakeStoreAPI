@@ -18,4 +18,11 @@ data class User(
     val phone: String?,
     @SerializedName("username")
     val username: String?,
-)
+) {
+    fun toEmail(): String {
+        return "email: $email"
+    }
+    fun toPhone(): String {
+        return "phone: $phone"
+    }
+}

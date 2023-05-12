@@ -9,107 +9,137 @@
             type="com.example.fakestoreapi.view.login.LoginViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
-
-        <TextView
-            android:id="@+id/textview_login"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_large"
-            android:layout_marginTop="@dimen/margin_x_large"
-            android:fontFamily="@font/itim_regular"
-            android:text="@string/login"
-            android:textColor="@color/brown"
-            android:textSize="@dimen/title_large"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/imageview_logo"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/image_height"
-            android:layout_marginHorizontal="@dimen/margin_x_medium"
-            android:layout_marginTop="@dimen/margin_large"
-            android:src="@drawable/iv_logo"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textview_login" />
-
-
-        <TextView
-            android:id="@+id/textview_username"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_x_large"
-            android:fontFamily="@font/itim_regular"
-            android:text="@string/user_name"
-            android:textColor="@color/brown"
-            android:textSize="@dimen/title_medium"
-            app:layout_constraintEnd_toEndOf="@+id/edittext_username"
-            app:layout_constraintStart_toStartOf="@+id/edittext_username"
-            app:layout_constraintTop_toBottomOf="@+id/imageview_logo" />
-
-        <EditText
-            android:id="@+id/edittext_username"
+        android:fillViewport="true">
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/edittext_height"
-            android:layout_marginHorizontal="@dimen/margin_huge"
-            android:layout_marginTop="@dimen/margin_very_small"
-            android:background="@drawable/edittext_background"
-            android:inputType="text"
-            android:padding="@dimen/margin_medium"
-            android:text="@={viewmodel.userName}"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textview_username"
-            tools:text="safa" />
-
-        <TextView
-            android:id="@+id/textview_password"
-            android:layout_width="0dp"
-
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_large"
-            android:fontFamily="@font/itim_regular"
-            android:text="@string/password"
-            android:textColor="@color/brown"
-            android:textSize="@dimen/title_medium"
-            app:layout_constraintEnd_toEndOf="@+id/edittext_password"
-            app:layout_constraintStart_toStartOf="@+id/edittext_password"
-            app:layout_constraintTop_toBottomOf="@+id/edittext_username" />
+            android:background="@color/white">
 
-        <EditText
-            android:id="@+id/edittext_password"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/edittext_height"
-            android:layout_marginTop="@dimen/margin_very_small"
-            android:background="@drawable/edittext_background"
-            android:inputType="textPassword"
-            android:padding="@dimen/margin_medium"
-            android:text="@={viewmodel.password}"
-            app:layout_constraintEnd_toEndOf="@+id/edittext_username"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/edittext_username"
-            app:layout_constraintTop_toBottomOf="@+id/textview_password"
-            tools:text="safa" />
+            <TextView
+                android:id="@+id/textview_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_large"
+                android:layout_marginTop="@dimen/margin_x_large"
+                android:fontFamily="@font/itim_regular"
+                android:text="@string/login"
+                android:textColor="@color/brown"
+                android:textSize="@dimen/title_large"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/imageview_logo"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/image_height"
+                android:layout_marginHorizontal="@dimen/margin_x_medium"
+                android:layout_marginTop="@dimen/margin_large"
+                android:src="@drawable/iv_logo"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textview_login" />
 
 
-        <Button
-            android:id="@+id/button_login"
-            android:layout_width="0dp"
-            android:layout_height="@dimen/edittext_height"
-            android:layout_marginTop="@dimen/margin_x_large"
-            android:background="@drawable/button_background"
-            android:onClick="@{()->viewmodel.loginUser()}"
-            android:text="@string/login"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="@+id/edittext_username"
-            app:layout_constraintStart_toStartOf="@+id/edittext_username"
-            app:layout_constraintTop_toBottomOf="@id/edittext_password" />
+            <TextView
+                android:id="@+id/textview_username"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_x_large"
+                android:fontFamily="@font/itim_regular"
+                android:text="@string/user_name"
+                android:textColor="@color/brown"
+                android:textSize="@dimen/title_medium"
+                app:layout_constraintEnd_toEndOf="@+id/edittext_username"
+                app:layout_constraintStart_toStartOf="@+id/edittext_username"
+                app:layout_constraintTop_toBottomOf="@+id/imageview_logo" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <EditText
+                android:id="@+id/edittext_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/margin_huge"
+                android:layout_marginTop="@dimen/margin_very_small"
+                android:background="@drawable/edittext_background"
+                android:inputType="text"
+                android:padding="@dimen/margin_medium"
+                android:text="@={viewmodel.userName}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textview_username"
+                tools:text="safa" />
+
+            <TextView
+                android:id="@+id/textview_password"
+                android:layout_width="0dp"
+
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_large"
+                android:fontFamily="@font/itim_regular"
+                android:text="@string/password"
+                android:textColor="@color/brown"
+                android:textSize="@dimen/title_medium"
+                app:layout_constraintEnd_toEndOf="@+id/edittext_password"
+                app:layout_constraintStart_toStartOf="@+id/edittext_password"
+                app:layout_constraintTop_toBottomOf="@+id/edittext_username" />
+
+            <EditText
+                android:id="@+id/edittext_password"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_very_small"
+                android:background="@drawable/edittext_background"
+                android:inputType="textPassword"
+                android:padding="@dimen/margin_medium"
+                android:text="@={viewmodel.password}"
+                app:layout_constraintEnd_toEndOf="@+id/edittext_username"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/edittext_username"
+                app:layout_constraintTop_toBottomOf="@+id/textview_password"
+                tools:text="safa" />
+
+
+            <Button
+                android:id="@+id/button_login"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/edittext_height"
+                android:layout_marginTop="@dimen/margin_x_large"
+                android:background="@drawable/button_background"
+                android:onClick="@{()->viewmodel.loginUser()}"
+                android:text="@string/login"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:hideWhenLoading="@{viewmodel.fragmentState}"
+                app:layout_constraintEnd_toEndOf="@+id/edittext_username"
+                app:layout_constraintStart_toStartOf="@+id/edittext_username"
+                app:layout_constraintTop_toBottomOf="@id/edittext_password" />
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:progressTint="@color/khamry"
+                app:showWhenLoading="@{viewmodel.fragmentState}"
+                android:indeterminate="true"
+                android:indeterminateTintMode="src_atop"
+                android:indeterminateTint="@color/khamry"
+                app:layout_constraintBottom_toBottomOf="@+id/button_login"
+                app:layout_constraintEnd_toEndOf="@+id/button_login"
+                app:layout_constraintStart_toStartOf="@+id/button_login"
+                app:layout_constraintTop_toTopOf="@+id/button_login" />
+
+            <ImageView
+                android:layout_width="@dimen/error_image_size"
+                android:layout_height="@dimen/error_image_size"
+                android:src="@drawable/error"
+                app:showWhenError="@{viewmodel.fragmentState}"
+                app:layout_constraintBottom_toTopOf="@+id/textview_username"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 </layout>

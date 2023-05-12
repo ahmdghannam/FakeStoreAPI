@@ -14,4 +14,8 @@ data class Address(
     val street: String?,
     @SerializedName("zipcode")
     val zipcode: String?
-)
+){
+    override fun toString(): String {
+        return "address:\n$street - $city\nzipcode: $zipcode"
+    }
+}
