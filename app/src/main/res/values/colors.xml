@@ -11,4 +11,6 @@
     <color name="red">#D40606</color>
     <color name="edittext_color">#F6F6F6</color>
     <color name="divider">#1A000000</color>
+    <color name="lightGray">#33000000</color>
+    <color name="ratingYellow">#FFC107</color>
 </resources>
