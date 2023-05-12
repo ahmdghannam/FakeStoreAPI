@@ -4,4 +4,7 @@
     <string name="login">Login</string>
     <string name="password">password</string>
     <string name="log_out">Log out</string>
+    <string name="from_men_s_clothing">from men\'s clothing</string>
+    <string name="add_to_cart">Add to Cart</string>
+    <string name="go_to_cart">go to cart</string>
 </resources>
