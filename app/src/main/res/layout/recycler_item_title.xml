@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:text="All of items in cart shown here"
-    android:textColor="@color/black"
-    android:fontFamily="@font/itim_regular"
-    android:layout_marginVertical="@dimen/margin_large"
-    android:layout_marginHorizontal="@dimen/margin_medium"
-    android:textSize="@dimen/title_medium" />
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="String" />
+    </data>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="All of items in cart shown here"
+        android:textColor="@color/black"
+        android:text="@{item}"
+        android:fontFamily="@font/itim_regular"
+        android:layout_marginVertical="@dimen/margin_large"
+        android:layout_marginHorizontal="@dimen/margin_medium"
+        android:textSize="@dimen/title_medium" />
+</layout>

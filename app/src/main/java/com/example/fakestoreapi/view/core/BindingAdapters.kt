@@ -1,11 +1,14 @@
 package com.example.fakestoreapi.view.core
 
 import android.view.View
+import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.RatingBar
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.fakestoreapi.R
+import com.example.fakestoreapi.view.base_classes.BaseRecyclerAdapter
 
 @BindingAdapter(value = ["app:hideWhenLoading"])
 fun View.hideWhenLoading(state: State<String>?) {
@@ -86,4 +89,14 @@ fun RatingBar.setRatingValue(r: Double?) {
     if (r == null) return
     val rating = if (r > 5) 5 else r
     this.rating = rating.toFloat()
+}
+
+@BindingAdapter(value = ["app:setItemsList"])
+fun <T> RecyclerView.setItemsList(list: List<T>?) {
+    (adapter as BaseRecyclerAdapter<T>).setItemsList(list ?: mutableListOf())
+}
+
+@BindingAdapter(value = ["app:setImageDrawableSrc"])
+fun ImageView.setImageDrawableSrc(src:Int){
+    this.setImageResource(src)
 }
