@@ -3,12 +3,8 @@ package com.example.fakestoreapi.view.base_classes
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import com.example.fakestoreapi.model.localdata.SharedPreferencesUtil
 import com.example.fakestoreapi.model.repository.Repository
-import com.example.fakestoreapi.model.repository.RepositoryImpl
 import com.example.fakestoreapi.view.core.State
-import com.example.fakestoreapi.view.login.LoginViewModel
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
 

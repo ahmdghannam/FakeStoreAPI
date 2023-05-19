@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewmodel"
             type="com.example.fakestoreapi.view.categories.CategoriesViewModel" />
@@ -23,8 +22,6 @@
             app:setItemsList="@{viewmodel.categories}"
             app:showWhenSuccess="@{viewmodel.fragmentState}"
             tools:listitem="@layout/recycler_item_categories" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

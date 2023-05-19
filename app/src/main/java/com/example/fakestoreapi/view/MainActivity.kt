@@ -4,18 +4,24 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.fakestoreapi.R
+import com.example.fakestoreapi.model.local.SharedPreferencesUtil
+import com.example.fakestoreapi.model.local.StoreDataBase
 import com.example.fakestoreapi.view.categories.CategoriesFragment
+import com.example.fakestoreapi.view.profile.ProfileFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        replaceFragment(CategoriesFragment())
+        val sharedPreferencesUtil = SharedPreferencesUtil(applicationContext)
+        sharedPreferencesUtil.userId = 8
+        StoreDataBase.init(applicationContext)
+        replaceFragment(ProfileFragment())
     }
 
     private fun replaceFragment(fragment: Fragment) {
-        val transaction=supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragmentContainer,fragment)
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragmentContainer, fragment)
         transaction.commit()
     }
 }

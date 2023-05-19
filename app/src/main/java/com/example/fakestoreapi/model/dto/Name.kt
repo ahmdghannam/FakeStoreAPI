@@ -8,4 +8,8 @@ data class Name(
     val firstname: String?,
     @SerializedName("lastname")
     val lastname: String?
-)
+){
+    override fun toString(): String {
+        return "$firstname $lastname"
+    }
+}

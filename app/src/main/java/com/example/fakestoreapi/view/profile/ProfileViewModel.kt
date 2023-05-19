@@ -1,9 +1,11 @@
 package com.example.fakestoreapi.view.profile
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.fakestoreapi.model.dto.User
-import com.example.fakestoreapi.model.localdata.SharedPreferencesUtil
+import com.example.fakestoreapi.model.dto.UserDto
+import com.example.fakestoreapi.model.local.SharedPreferencesUtil
+import com.example.fakestoreapi.model.local.entity.UserEntity
 import com.example.fakestoreapi.model.repository.Repository
 import com.example.fakestoreapi.model.repository.RepositoryImpl
 import com.example.fakestoreapi.view.base_classes.BaseViewModel
@@ -16,62 +18,50 @@ class ProfileViewModel(
 ) : BaseViewModel() {
 
     override val repository: Repository = RepositoryImpl(sharedPreferences)
-    private val _name = MutableLiveData<String>()
-    val name: LiveData<String>
-        get() = _name
 
-    private val _email = MutableLiveData<String>()
-    val email: LiveData<String>
-        get() = _email
-
-    private val _phone = MutableLiveData<String>()
-    val phone: LiveData<String>
-        get() = _phone
-
-    private val _address = MutableLiveData<String>()
-    val address: LiveData<String>
-        get() = _address
+    private val _user = MutableLiveData<UserEntity>()
+    val user: LiveData<UserEntity>
+        get() = _user
 
     init {
-        getUserInformation()
+        _fragmentState.postValue(State.Loading)
+        repository
+            .refreshUserData()
+            .subscribe({
+                getUserInformation()
+            },{
+                getUserInformation()
+            })
+            .addToCompositeDisposable()
     }
 
-    private fun getUserInformation(){
-        _fragmentState.postValue(State.Loading)
+    private fun getUserInformation() {
         repository.getUser()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(::onSuccess,::onFailure)
+            .subscribe(::onSuccess, ::onFailure)
             .addToCompositeDisposable()
     }
 
 
-    private fun onSuccess(user: User){
-        user.apply {
-            username?.let {
-                _name.postValue(it)
-            }
-            email?.let {
-                _email.postValue(toEmail())
-            }
-            address?.let {
-                _email.postValue(it.toString())
-            }
-            phone?.let {
-                _phone.postValue(toPhone())
-            }
-        }
+    private fun onSuccess(userEntity: UserEntity) {
+        _user.postValue(userEntity)
         _fragmentState.postValue(State.Success("data fetched"))
     }
 
-    private fun onFailure(throwable: Throwable){
+    private fun onFailure(throwable: Throwable) {
         _fragmentState.postValue(State.Error("user not found"))
         _toastMessage.postValue("user not found")
     }
 
-    fun logOutUser(){
+    fun logOutUser() {
         repository.logOut()
         // todo go to login page
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        repository.onCleared()
     }
 
 }

@@ -1,10 +1,9 @@
 package com.example.fakestoreapi.view.login
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.example.fakestoreapi.model.dto.LoginRequest
 import com.example.fakestoreapi.model.dto.TokenResponse
-import com.example.fakestoreapi.model.localdata.SharedPreferencesUtil
+import com.example.fakestoreapi.model.local.SharedPreferencesUtil
 import com.example.fakestoreapi.model.repository.Repository
 import com.example.fakestoreapi.model.repository.RepositoryImpl
 import com.example.fakestoreapi.view.core.State

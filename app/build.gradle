@@ -31,7 +31,7 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
-    buildFeatures{
+    buildFeatures {
         dataBinding true
     }
 }
@@ -50,7 +50,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
-    /// RXJava retrofit
+    /// RXJava
     implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
     implementation "io.reactivex.rxjava3:rxjava:3.1.6"
     implementation "com.squareup.retrofit2:adapter-rxjava3:2.9.0"
@@ -73,4 +73,20 @@ dependencies {
 
     /// splash
     implementation 'androidx.core:core-splashscreen:1.0.1'
+
+    //room database
+    def room_version = "2.5.1"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+// optional - RxJava3 support for Room
+    implementation "androidx.room:room-rxjava3:$room_version"
+
+// Kotlin
+    implementation "androidx.activity:activity-ktx:1.7.1"
+    implementation "androidx.fragment:fragment-ktx:1.5.7"
+
+// rx java
+    implementation 'io.reactivex.rxjava3:rxjava:3.1.6'
+    implementation 'io.reactivex.rxjava3:rxandroid:3.0.2'
+
 }

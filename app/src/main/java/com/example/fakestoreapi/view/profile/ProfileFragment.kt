@@ -1,11 +1,9 @@
 package com.example.fakestoreapi.view.profile
 
-import android.os.Bundle
-import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.example.fakestoreapi.R
 import com.example.fakestoreapi.databinding.FragmentProfileBinding
-import com.example.fakestoreapi.model.localdata.SharedPreferencesUtil
+import com.example.fakestoreapi.model.local.SharedPreferencesUtil
 import com.example.fakestoreapi.view.base_classes.BaseFragment
 import com.example.fakestoreapi.view.core.CustomViewModelFactory
 

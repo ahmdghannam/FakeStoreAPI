@@ -2,7 +2,7 @@ package com.example.fakestoreapi.view.core
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.fakestoreapi.model.localdata.SharedPreferencesUtil
+import com.example.fakestoreapi.model.local.SharedPreferencesUtil
 import com.example.fakestoreapi.view.categories.CategoriesViewModel
 import com.example.fakestoreapi.view.login.LoginViewModel
 import com.example.fakestoreapi.view.product_details.ProductDetailsViewModel

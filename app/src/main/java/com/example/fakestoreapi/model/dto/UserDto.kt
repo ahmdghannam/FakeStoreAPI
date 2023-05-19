@@ -3,7 +3,7 @@ package com.example.fakestoreapi.model.dto
 
 import com.google.gson.annotations.SerializedName
 
-data class User(
+data class UserDto(
     @SerializedName("address")
     val address: Address?,
     @SerializedName("email")
@@ -18,11 +18,4 @@ data class User(
     val phone: String?,
     @SerializedName("username")
     val username: String?,
-) {
-    fun toEmail(): String {
-        return "email: $email"
-    }
-    fun toPhone(): String {
-        return "phone: $phone"
-    }
-}
+)

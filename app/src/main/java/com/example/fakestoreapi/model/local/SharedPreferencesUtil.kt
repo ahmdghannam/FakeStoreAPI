@@ -1,4 +1,4 @@
-package com.example.fakestoreapi.model.localdata
+package com.example.fakestoreapi.model.local
 
 import android.content.Context
 import android.content.SharedPreferences

@@ -1,12 +1,11 @@
 package com.example.fakestoreapi.view.categories
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.fakestoreapi.R
 import com.example.fakestoreapi.model.dto.CategoryItem
 import com.example.fakestoreapi.model.dto.RecyclerItem
-import com.example.fakestoreapi.model.localdata.SharedPreferencesUtil
+import com.example.fakestoreapi.model.local.SharedPreferencesUtil
 import com.example.fakestoreapi.model.repository.Repository
 import com.example.fakestoreapi.model.repository.RepositoryImpl
 import com.example.fakestoreapi.view.base_classes.BaseViewModel
