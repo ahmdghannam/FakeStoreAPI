@@ -1,9 +1,7 @@
 package com.example.fakestoreapi.view.profile
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.fakestoreapi.model.dto.UserDto
 import com.example.fakestoreapi.model.local.SharedPreferencesUtil
 import com.example.fakestoreapi.model.local.entity.UserEntity
 import com.example.fakestoreapi.model.repository.Repository
@@ -15,6 +13,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 
 class ProfileViewModel(
     sharedPreferences: SharedPreferencesUtil
+
 ) : BaseViewModel() {
 
     override val repository: Repository = RepositoryImpl(sharedPreferences)
