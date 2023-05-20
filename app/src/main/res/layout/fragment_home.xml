@@ -6,18 +6,27 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.example.fakestoreapi.view.base_classes.BaseViewModel" />
+            type="com.example.fakestoreapi.view.home.HomeViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        >
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
+            android:id="@+id/recyclerview_home"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_gravity="center_horizontal"
+            app:setItemsList="@{viewmodel.products}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            android:orientation="vertical"
+            app:spanCount="2"
+            tools:listitem="@layout/recycler_item_home"
             />
 
 

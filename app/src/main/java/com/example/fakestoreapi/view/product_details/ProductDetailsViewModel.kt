@@ -14,6 +14,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 class ProductDetailsViewModel(
     sharedPreferencesUtil: SharedPreferencesUtil
 ) : BaseViewModel() {
+    private val productID = 7
     override val repository: Repository = RepositoryImpl(sharedPreferencesUtil)
     private val _category = MutableLiveData<String>()
     val category: LiveData<String>
@@ -35,20 +36,14 @@ class ProductDetailsViewModel(
     val price: LiveData<String>
         get() = _price
 
-    fun toPrice() = "Price: ${price.value}$"
-
 
     private val _rating = MutableLiveData<Double>()
     val rating: LiveData<Double>
         get() = _rating
 
-    fun toRating() = _rating.value?.toInt()
-
     private val _ratesCounter = MutableLiveData<String>()
     val ratesCounter: LiveData<String>
         get() = _ratesCounter
-
-    fun toRatesCounter() = "${ratesCounter.value} ratings"
 
 
     init {
@@ -57,7 +52,7 @@ class ProductDetailsViewModel(
 
     private fun getProductData() {
         _fragmentState.postValue(State.Loading)
-        repository.getProductById(20)
+        repository.getProductById(productID)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeOn(Schedulers.io())
             .subscribe(::onSuccess, ::onFailure)
