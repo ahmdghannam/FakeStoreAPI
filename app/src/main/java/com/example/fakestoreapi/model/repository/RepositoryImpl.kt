@@ -96,8 +96,8 @@ class RepositoryImpl(
         return apiService.getAllCategories()
     }
 
-    override fun getCartsByUserId(userId: Int): Single<List<CartResponse>> {
-        return apiService.getCartsByUserId(userId)
+    override fun getAllCarts(): Single<List<CartResponse>> {
+        return apiService.getCartsByUserId(getUserId()!!)
     }
 
     override fun getUser(): Single<UserEntity> {

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="item"
             type="com.example.fakestoreapi.model.dto.ProductResponse" />
@@ -70,7 +69,9 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/tshirt" />
+                android:src="@drawable/tshirt"
+                android:layout_margin="@dimen/margin_very_small"
+                />
         </androidx.cardview.widget.CardView>
 
 
