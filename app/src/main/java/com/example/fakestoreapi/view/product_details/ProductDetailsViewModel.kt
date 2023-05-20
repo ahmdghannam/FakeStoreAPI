@@ -8,13 +8,16 @@ import com.example.fakestoreapi.model.repository.Repository
 import com.example.fakestoreapi.model.repository.RepositoryImpl
 import com.example.fakestoreapi.view.base_classes.BaseViewModel
 import com.example.fakestoreapi.view.core.State
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
-
-class ProductDetailsViewModel(
-    sharedPreferencesUtil: SharedPreferencesUtil
+import javax.inject.Inject
+@HiltViewModel
+class ProductDetailsViewModel @Inject constructor(
+    private val sharedPreferencesUtil: SharedPreferencesUtil, // it can be private and val
+    override val repository: Repository
 ) : BaseViewModel() {
-    override val repository: Repository = RepositoryImpl(sharedPreferencesUtil)
+
     private val _category = MutableLiveData<String>()
     val category: LiveData<String>
         get() = _category
@@ -49,7 +52,6 @@ class ProductDetailsViewModel(
         get() = _ratesCounter
 
     fun toRatesCounter() = "${ratesCounter.value} ratings"
-
 
     init {
         getProductData()

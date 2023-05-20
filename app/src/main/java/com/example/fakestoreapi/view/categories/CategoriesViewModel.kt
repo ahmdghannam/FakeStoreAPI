@@ -10,16 +10,16 @@ import com.example.fakestoreapi.model.repository.Repository
 import com.example.fakestoreapi.model.repository.RepositoryImpl
 import com.example.fakestoreapi.view.base_classes.BaseViewModel
 import com.example.fakestoreapi.view.core.State
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
+import javax.inject.Inject
 
 
-class CategoriesViewModel(
-    sharedPreferencesUtil: SharedPreferencesUtil
+@HiltViewModel
+class CategoriesViewModel @Inject constructor(
+    override val repository: Repository
 ) : BaseViewModel(), CategoriesClickListener {
-
-    override val repository: Repository = RepositoryImpl(sharedPreferencesUtil)
-
     private val _categories = MutableLiveData<List<RecyclerItem<Any>>>()
     val categories: LiveData<List<RecyclerItem<Any>>>
         get() = _categories

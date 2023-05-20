@@ -9,12 +9,11 @@ import java.util.concurrent.TimeUnit
 
 class API {
 
-    val loggingInterceptor = HttpLoggingInterceptor().apply {
+    private val loggingInterceptor = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY
     }
 
-
-    val client = OkHttpClient
+    private val client = OkHttpClient
         .Builder()
         .addInterceptor(loggingInterceptor)
         .callTimeout(30, TimeUnit.SECONDS)

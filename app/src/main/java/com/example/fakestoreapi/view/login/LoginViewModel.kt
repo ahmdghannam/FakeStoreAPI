@@ -8,14 +8,16 @@ import com.example.fakestoreapi.model.repository.Repository
 import com.example.fakestoreapi.model.repository.RepositoryImpl
 import com.example.fakestoreapi.view.core.State
 import com.example.fakestoreapi.view.base_classes.BaseViewModel
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
+import javax.inject.Inject
 
-class LoginViewModel(
-    sharedPrefsUtil: SharedPreferencesUtil
+@HiltViewModel
+class LoginViewModel @Inject constructor(
+    override val repository: Repository
 ) : BaseViewModel() {
 
-    override val repository: Repository = RepositoryImpl(sharedPrefsUtil)
     val userName = MutableLiveData<String>()
     val password = MutableLiveData<String>()
 

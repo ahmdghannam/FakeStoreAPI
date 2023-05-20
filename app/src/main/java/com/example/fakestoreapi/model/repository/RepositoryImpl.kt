@@ -3,6 +3,7 @@ package com.example.fakestoreapi.model.repository
 import android.annotation.SuppressLint
 import android.util.Log
 import com.example.fakestoreapi.model.api.API
+import com.example.fakestoreapi.model.api.FakeStoreApiService
 import com.example.fakestoreapi.model.dto.CartResponse
 import com.example.fakestoreapi.model.dto.LoginRequest
 import com.example.fakestoreapi.model.dto.Name
@@ -11,6 +12,7 @@ import com.example.fakestoreapi.model.dto.TokenResponse
 import com.example.fakestoreapi.model.dto.UserDto
 import com.example.fakestoreapi.model.local.SharedPreferencesUtil
 import com.example.fakestoreapi.model.local.StoreDataBase
+import com.example.fakestoreapi.model.local.daos.UserDao
 import com.example.fakestoreapi.model.local.entity.UserEntity
 import com.example.fakestoreapi.utils.userNameToId
 import io.reactivex.rxjava3.core.Completable
@@ -18,19 +20,22 @@ import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
 import java.lang.Exception
+import javax.inject.Inject
 
-class RepositoryImpl(
-    private val sharedPreferences: SharedPreferencesUtil
+class RepositoryImpl @Inject constructor(
+    private val sharedPreferences: SharedPreferencesUtil,
+    private val apiService:FakeStoreApiService,
+    private val userDao :UserDao
 ) : Repository {
-
-    private val apiService = API().fakeStoreApiService
-    private val userDao = StoreDataBase.getInstance().userDao()
+//    private val apiService:FakeStoreApiService = API().fakeStoreApiService
+//    private val userDao :UserDao = StoreDataBase.getInstance().userDao()
 
     private val compositeDisposable = CompositeDisposable()
     private fun Disposable.addToCompositeDisposable() {
         compositeDisposable.add(this)
     }
-     override fun onCleared() {
+
+    override fun onCleared() {
         compositeDisposable.dispose()
     }
 

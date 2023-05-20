@@ -8,7 +8,9 @@ import com.example.fakestoreapi.model.local.SharedPreferencesUtil
 import com.example.fakestoreapi.model.local.StoreDataBase
 import com.example.fakestoreapi.view.categories.CategoriesFragment
 import com.example.fakestoreapi.view.profile.ProfileFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
