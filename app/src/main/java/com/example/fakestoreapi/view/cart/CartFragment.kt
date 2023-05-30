@@ -19,7 +19,10 @@ class CartFragment : BaseFragment<FragmentCartBinding, CartViewModel>() {
     }
 
     private fun setupAdapter() {
-
+        binding.recyclerviewCart.adapter= CartRecyclerAdapter(
+            listOf(),
+            viewModel!!
+        )
     }
 
     override fun setupViewModel() {

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="item"
-            type="com.example.fakestoreapi.model.dto.ProductResponse" />
+            type="com.example.fakestoreapi.model.dto.CartProduct" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,6 +20,7 @@
             android:id="@+id/textview_number_of_items"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@{item.numberOfCopies.toString() +' '+@string/items}"
             android:layout_margin="@dimen/margin_medium"
             android:fontFamily="@font/itim_regular"
             android:textColor="@color/khamry"
@@ -33,11 +34,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_small"
+            android:text="@{item.title.toString()}"
             android:layout_marginBottom="2dp"
             android:fontFamily="@font/itim_regular"
             android:textColor="@color/black"
             android:textSize="10sp"
-            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintBottom_toTopOf="@+id/textview_price"
             app:layout_constraintEnd_toStartOf="@+id/textview_number_of_items"
             app:layout_constraintStart_toEndOf="@id/cardview_product_image"
             app:layout_constraintTop_toTopOf="parent"
@@ -45,11 +47,12 @@
             tools:text="Fjallraven - Foldsack No. 1 ...." />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textview_price"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/itim_regular"
             android:textColor="@color/black"
+            android:text="@{@string/price + ' ' + item.price.toString() + @string/dollar }"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textview_number_of_items"
@@ -69,8 +72,9 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/tshirt"
+                android:src="@drawable/ic_iamge_notfound"
                 android:layout_margin="@dimen/margin_very_small"
+                app:setImageWithUrl="@{item.image}"
                 />
         </androidx.cardview.widget.CardView>
 

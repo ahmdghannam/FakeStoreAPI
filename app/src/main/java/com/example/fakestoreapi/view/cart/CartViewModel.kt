@@ -11,7 +11,6 @@ import com.example.fakestoreapi.model.local.SharedPreferencesUtil
 import com.example.fakestoreapi.model.repository.Repository
 import com.example.fakestoreapi.model.repository.RepositoryImpl
 import com.example.fakestoreapi.view.base_classes.BaseViewModel
-import com.example.fakestoreapi.view.categories.CartRecyclerItem
 import com.example.fakestoreapi.view.core.State
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -30,6 +29,7 @@ class CartViewModel(
     }
 
     private fun getAllCarts() {
+        _fragmentState.postValue(State.Loading)
         repository.getAllCarts()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -39,53 +39,67 @@ class CartViewModel(
 
     private fun onSuccess(carts: List<CartResponse>) {
         val list = mutableListOf<CartRecyclerItem>()
-        list+= CartRecyclerItem.TitleItem("All of items in cart shown here ")
-        extractCartRecyclerItemsAndAddItToList(carts, list)
-        Thread.sleep(1000)
+        list += CartRecyclerItem.TitleItem("All of items in cart shown here ")
+        addCartItemsToList(carts, list)
         _cartItems.postValue(list)
         _fragmentState.postValue(State.Success("carts fetched"))
         list.toPrint()
     }
 
-    fun MutableList<CartRecyclerItem>.toPrint(){
+    private fun MutableList<CartRecyclerItem>.toPrint() {
         this.forEach {
-           Log.i("viewmodel", it.toData().toString())
+            Log.i("viewmodel", it.toData().toString())
         }
 
     }
 
-    private fun extractCartRecyclerItemsAndAddItToList(
+    private fun addCartItemsToList(
         carts: List<CartResponse>,
         list: MutableList<CartRecyclerItem>
     ) {
         carts.forEach { cartResponse ->
-            list += CartRecyclerItem.SubTitleItem(cartResponse.date.toString())
-            addProducts(cartResponse, list)
+            list += CartRecyclerItem.SubTitleItem(cartResponse.date.toString().substring(0..9))
+            addProductsToList(cartResponse, list)
         }
     }
 
-    private fun addProducts(
+    private fun addProductsToList(
         cartResponse: CartResponse,
         list: MutableList<CartRecyclerItem>
     ) {
         cartResponse.products?.forEach { product ->
-            product?.let {
-                repository.getProductById(product.productId!!).subscribe(
-                    {productResponse->
-                        Log.i("viewmodel", "product response: ${productResponse.toString()} ")
-                        productResponse.let {
-                            val cartProduct = composeCartProduct(productResponse, product)
-                            list += CartRecyclerItem.ProductItem(cartProduct)
-                        }
-                    }, {}).addToCompositeDisposable()
-            }
+            addProductToList(product, list)
         }
     }
 
-    private fun getProductResponse(productSafe: Product): ProductResponse? {
-        var productResponse: ProductResponse? = null
+    private fun addProductToList(
+        product: Product?,
+        list: MutableList<CartRecyclerItem>
+    ) {
+        product?.let {
+            repository.getProductById(product.productId!!)
+                .blockingSubscribe(
+                    { productResponse ->
+                        getProductByIdSuccess(product, list, productResponse)
+                    },
+                    ::getProductByIdOnError
+                )
+        }
+    }
 
-        return productResponse
+    private fun getProductByIdSuccess(
+        product: Product,
+        list: MutableList<CartRecyclerItem>,
+        productResponse: ProductResponse?
+    ) {
+        productResponse.let {
+            val cartProduct = composeCartProduct(productResponse, product)
+            list += CartRecyclerItem.ProductItem(cartProduct)
+        }
+    }
+
+    private fun getProductByIdOnError(throwable: Throwable) {
+        _toastMessage.postValue("some products are missing")
     }
 
     private fun composeCartProduct(
