@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/itim_regular"
             android:textColor="@color/black"
-            android:text="@{@string/price + ' ' + item.price.toString() + @string/dollar }"
+            android:text="@{@string/price + ' ' + item.price.toString() +' '+ @string/dollar }"
             android:textSize="10sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/textview_number_of_items"
