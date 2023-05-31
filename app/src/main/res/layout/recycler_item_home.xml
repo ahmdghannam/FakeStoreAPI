@@ -8,6 +8,10 @@
         <variable
             name="item"
             type="com.example.fakestoreapi.model.dto.ProductResponse" />
+
+        <variable
+            name="listener"
+            type="com.example.fakestoreapi.view.home.HomeClickListeners" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -15,13 +19,13 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_medium"
         android:layout_marginBottom="@dimen/margin_medium"
-        app:cardElevation="0dp"
-        >
+        app:cardElevation="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="150dp"
             android:layout_height="240dp"
             android:background="@color/white"
+            android:onClick="@{()->listener.onProductClickListener()}"
             android:padding="4dp">
 
             <ImageView

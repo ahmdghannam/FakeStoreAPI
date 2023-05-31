@@ -3,6 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="teal">#5eb4c2</color>
+    <color name="bottom_navigation_selection_indicator">#cce8eb</color>
     <color name="khamry">#842700</color>
     <color name="asaly">#ffe9d1</color>
     <color name="brown">#92705b</color>
@@ -14,4 +15,5 @@
     <color name="lightGray">#33000000</color>
     <color name="ratingYellow">#FFC107</color>
     <color name="bottom_navigation_color">#e6f1f2</color>
+    <color name="bottom_navigation_text_icon_color">#191C1D</color>
 </resources>

@@ -47,7 +47,6 @@ class CategoriesViewModel(
         )
         _categories.postValue(categoriesRecyclerItems)
         _fragmentState.postValue(State.Success("categories fetched"))
-        _toastMessage.postValue("data fetched")
     }
 
     private fun onFailure(throwable: Throwable) {

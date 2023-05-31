@@ -1,5 +1,6 @@
 package com.example.fakestoreapi.view.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.fakestoreapi.model.dto.ProductResponse
@@ -10,6 +11,7 @@ import com.example.fakestoreapi.view.base_classes.BaseViewModel
 import com.example.fakestoreapi.view.core.State
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
+import kotlin.math.log
 
 class HomeViewModel(
     sharedPrefsUtil: SharedPreferencesUtil
@@ -23,7 +25,7 @@ class HomeViewModel(
         getAllProducts()
     }
 
-     fun getAllProducts() {
+     private fun getAllProducts() {
         _fragmentState.postValue(State.Loading)
         repository.getAllProducts()
             .subscribeOn(Schedulers.io())

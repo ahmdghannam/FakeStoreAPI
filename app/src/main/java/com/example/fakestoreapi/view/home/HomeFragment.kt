@@ -49,8 +49,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeViewModel>() {
         }
         binding.recyclerviewHome.layoutManager = layoutManager
         binding.recyclerviewHome.adapter = HomeRecyclerAdapter(mutableListOf(), viewModel!!)
-
-
     }
 
 
