@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.fakestoreapi.model.local.SharedPreferencesUtil
 import com.example.fakestoreapi.view.cart.CartViewModel
 import com.example.fakestoreapi.view.categories.CategoriesViewModel
+import com.example.fakestoreapi.view.home.HomeViewModel
 import com.example.fakestoreapi.view.login.LoginViewModel
 import com.example.fakestoreapi.view.product_details.ProductDetailsViewModel
 import com.example.fakestoreapi.view.profile.ProfileViewModel

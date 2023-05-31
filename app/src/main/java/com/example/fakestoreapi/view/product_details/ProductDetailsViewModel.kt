@@ -14,7 +14,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 class ProductDetailsViewModel(
     sharedPreferencesUtil: SharedPreferencesUtil
 ) : BaseViewModel() {
-    private val productID = 7
+    private val productID = 3
     override val repository: Repository = RepositoryImpl(sharedPreferencesUtil)
     private val _category = MutableLiveData<String>()
     val category: LiveData<String>
