@@ -43,15 +43,8 @@ class CartViewModel(
         addCartItemsToList(carts, list)
         _cartItems.postValue(list)
         _fragmentState.postValue(State.Success("carts fetched"))
-        list.toPrint()
     }
 
-    private fun MutableList<CartRecyclerItem>.toPrint() {
-        this.forEach {
-            Log.i("viewmodel", it.toData().toString())
-        }
-
-    }
 
     private fun addCartItemsToList(
         carts: List<CartResponse>,
