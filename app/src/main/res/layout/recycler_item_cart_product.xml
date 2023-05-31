@@ -74,6 +74,7 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/ic_iamge_notfound"
                 android:layout_margin="@dimen/margin_very_small"
+                tools:src="@drawable/bag"
                 app:setImageWithUrl="@{item.image}"
                 />
         </androidx.cardview.widget.CardView>

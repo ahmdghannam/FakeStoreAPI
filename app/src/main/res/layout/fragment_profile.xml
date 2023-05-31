@@ -34,10 +34,10 @@
                 android:text="@string/log_out"
                 android:textColor="@color/red"
                 android:textSize="@dimen/body_large"
-                app:showWhenSuccess="@{viewmodel.fragmentState}"
                 app:drawableStartCompat="@drawable/ic_logout"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:showWhenSuccess="@{viewmodel.fragmentState}" />
 
 
             <com.google.android.material.imageview.ShapeableImageView
@@ -48,11 +48,11 @@
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
                 android:src="@drawable/profile"
-                app:showWhenSuccess="@{viewmodel.fragmentState}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textview_logout"
-                app:shapeAppearanceOverlay="@style/circleImageView" />
+                app:shapeAppearanceOverlay="@style/circleImageView"
+                app:showWhenSuccess="@{viewmodel.fragmentState}" />
 
             <TextView
                 android:id="@+id/textview_name"
@@ -61,12 +61,12 @@
                 android:layout_marginTop="@dimen/margin_medium"
                 android:fontFamily="@font/itim_regular"
                 android:text="@{viewmodel.user.name.toString()}"
-                app:showWhenSuccess="@{viewmodel.fragmentState}"
                 android:textColor="@color/black"
                 android:textSize="@dimen/title_large"
                 app:layout_constraintEnd_toEndOf="@+id/imageview_profile"
                 app:layout_constraintStart_toStartOf="@+id/imageview_profile"
                 app:layout_constraintTop_toBottomOf="@+id/imageview_profile"
+                app:showWhenSuccess="@{viewmodel.fragmentState}"
                 tools:text="Name" />
 
             <View
@@ -77,8 +77,8 @@
                 android:background="@color/divider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:showWhenSuccess="@{viewmodel.fragmentState}"
-                app:layout_constraintTop_toBottomOf="@+id/textview_name" />
+                app:layout_constraintTop_toBottomOf="@+id/textview_name"
+                app:showWhenSuccess="@{viewmodel.fragmentState}" />
 
             <ImageView
                 android:id="@+id/imageview_edit_pen"
@@ -87,8 +87,8 @@
                 android:layout_marginEnd="@dimen/margin_large"
                 android:src="@drawable/ic_edit_pen"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:showWhenSuccess="@{viewmodel.fragmentState}"
-                app:layout_constraintTop_toTopOf="@+id/textview_email" />
+                app:layout_constraintTop_toTopOf="@+id/textview_email"
+                app:showWhenSuccess="@{viewmodel.fragmentState}" />
 
             <TextView
                 android:id="@+id/textview_email"
@@ -100,10 +100,10 @@
                 android:text="@{viewmodel.user.toEmail()}"
                 android:textColor="@color/black"
                 android:textSize="@dimen/title_medium"
-                app:showWhenSuccess="@{viewmodel.fragmentState}"
                 app:layout_constraintEnd_toStartOf="@+id/imageview_edit_pen"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/divider"
+                app:showWhenSuccess="@{viewmodel.fragmentState}"
                 tools:text="email : john@gmail.com" />
 
             <TextView
@@ -115,10 +115,10 @@
                 android:text="@{viewmodel.user.toPhone()}"
                 android:textColor="@color/black"
                 android:textSize="@dimen/title_medium"
-                app:showWhenSuccess="@{viewmodel.fragmentState}"
                 app:layout_constraintEnd_toStartOf="@+id/imageview_edit_pen"
                 app:layout_constraintStart_toStartOf="@+id/textview_email"
                 app:layout_constraintTop_toBottomOf="@+id/textview_email"
+                app:showWhenSuccess="@{viewmodel.fragmentState}"
                 tools:text="phone : 1-570-236-7033" />
 
             <TextView
@@ -130,10 +130,10 @@
                 android:text="@{viewmodel.user.address.toString()}"
                 android:textColor="@color/black"
                 android:textSize="@dimen/title_medium"
-                app:showWhenSuccess="@{viewmodel.fragmentState}"
                 app:layout_constraintEnd_toEndOf="@+id/textview_phone"
                 app:layout_constraintStart_toStartOf="@+id/textview_phone"
                 app:layout_constraintTop_toBottomOf="@+id/textview_phone"
+                app:showWhenSuccess="@{viewmodel.fragmentState}"
                 tools:text="address :\nkilcoole - new road \nzipcode: 12926-3874" />
 
 
@@ -142,6 +142,7 @@
                 android:layout_width="@dimen/error_image_size"
                 android:layout_height="@dimen/error_image_size"
                 android:src="@drawable/error"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -156,6 +157,7 @@
                 android:indeterminateTint="@color/khamry"
                 android:indeterminateTintMode="src_atop"
                 android:progressTint="@color/khamry"
+                android:visibility="gone"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -17,16 +17,18 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview_home"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_gravity="center_horizontal"
+            android:layout_gravity="center"
             app:setItemsList="@{viewmodel.products}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             android:orientation="vertical"
             app:spanCount="2"
             tools:listitem="@layout/recycler_item_home"
+            android:paddingHorizontal="16dp"
             />
 
 

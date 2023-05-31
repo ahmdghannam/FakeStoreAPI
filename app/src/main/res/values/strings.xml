@@ -11,7 +11,10 @@
     <string name="dollar">$</string>
     <string name="ratings"> ratings</string>
     <string name="items"> items</string>
-
+    <string name="profile">profile</string>
+    <string name="categories">categories</string>
+    <string name="cart">cart</string>
+    <string name="home">home</string>
 
 
 </resources>
