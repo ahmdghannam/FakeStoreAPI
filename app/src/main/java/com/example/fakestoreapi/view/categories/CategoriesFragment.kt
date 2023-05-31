@@ -25,7 +25,7 @@ class CategoriesFragment : BaseFragment<FragmentCategoriesBinding, CategoriesVie
 
     override fun setupViewModel() {
         val customViewModelFactory = CustomViewModelFactory(
-            SharedPreferencesUtil(requireContext())
+            SharedPreferencesUtil(requireContext().applicationContext)
         )
         viewModel = ViewModelProvider(this, customViewModelFactory)[CategoriesViewModel::class.java]
         binding.viewmodel = viewModel

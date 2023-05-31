@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.fakestoreapi.R
 import com.example.fakestoreapi.model.dto.CategoryItem
-import com.example.fakestoreapi.model.dto.RecyclerItem
+import com.example.fakestoreapi.model.recyclerItems.RecyclerItem
 import com.example.fakestoreapi.model.local.SharedPreferencesUtil
 import com.example.fakestoreapi.model.repository.Repository
 import com.example.fakestoreapi.model.repository.RepositoryImpl
@@ -43,7 +43,7 @@ class CategoriesViewModel(
             RecyclerItem(CategoryItem(categoriesNames[ELECTRONICS], R.drawable.electronics)),
             RecyclerItem(CategoryItem(categoriesNames[JEWELERY], R.drawable.jewerly)),
             RecyclerItem(CategoryItem(categoriesNames[MENS], R.drawable.mens)),
-            RecyclerItem(CategoryItem(categoriesNames[WOMENS], R.drawable.womens))
+            RecyclerItem(CategoryItem(categoriesNames[WOMENS], R.drawable.womens)),
         )
         _categories.postValue(categoriesRecyclerItems)
         _fragmentState.postValue(State.Success("categories fetched"))

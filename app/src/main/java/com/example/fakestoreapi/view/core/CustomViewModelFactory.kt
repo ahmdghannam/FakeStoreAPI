@@ -13,27 +13,25 @@ class CustomViewModelFactory(private val sharedPreferencesUtil: SharedPreference
     ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
 
-        when {
-            modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
+        when{
+            modelClass.isAssignableFrom(LoginViewModel::class.java)->{
                 return LoginViewModel(sharedPreferencesUtil) as T
             }
-
-            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
+            modelClass.isAssignableFrom(ProfileViewModel::class.java)->{
                 return ProfileViewModel(sharedPreferencesUtil) as T
             }
-
-            modelClass.isAssignableFrom(ProductDetailsViewModel::class.java) -> {
+            modelClass.isAssignableFrom(ProductDetailsViewModel::class.java)->{
                 return ProductDetailsViewModel(sharedPreferencesUtil) as T
             }
-
-            modelClass.isAssignableFrom(CategoriesViewModel::class.java) -> {
+            modelClass.isAssignableFrom(CategoriesViewModel::class.java)->{
                 return CategoriesViewModel(sharedPreferencesUtil) as T
             }
-
             modelClass.isAssignableFrom(CartViewModel::class.java) -> {
                 return CartViewModel(sharedPreferencesUtil) as T
             }
-
+            modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
+                return HomeViewModel(sharedPreferencesUtil) as T
+            }
             else -> throw Exception("view model not found")
         }
     }

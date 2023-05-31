@@ -8,7 +8,7 @@ import com.example.fakestoreapi.R
 import com.example.fakestoreapi.databinding.RecyclerItemCategoriesBinding
 import com.example.fakestoreapi.databinding.RecyclerItemTitleBinding
 import com.example.fakestoreapi.model.dto.CategoryItem
-import com.example.fakestoreapi.model.dto.RecyclerItem
+import com.example.fakestoreapi.model.recyclerItems.RecyclerItem
 import com.example.fakestoreapi.view.base_classes.BaseRecyclerAdapter
 
 class CategoriesRecyclerAdapter(
